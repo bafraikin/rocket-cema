@@ -1,4 +1,5 @@
 body {
+  overflow: hidden;
   margin: 0;
 }
 
@@ -14,10 +15,7 @@ body {
   top: 10vh;
   z-index: 2;
   width: 7%;
-  transition-delay: 2s;
-  transition-duration: 0.5s;
-  transform: translate(100vw, 30vh);
-  transition: all 3s 3s;
+  animation: 7s linear 1s infinite running asteroide;
 }
 
 #rocket {
@@ -27,3 +25,6 @@ body {
   z-index: 2;
   width: 5%;
 }
+
+  @keyframes asteroide { from { margin-left:-20%; margin-top: -20%; } to { margin-left: 83%; margin-top: 23%;}  }
+
