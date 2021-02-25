@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+}
+
+#video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width:100vw;
+}
+
+#asteroide {
+  position: absolute;
+  top: 10vh;
+  z-index: 2;
+  width: 7%;
+  transition-delay: 2s;
+  transition-duration: 0.5s;
+  transform: translate(100vw, 30vh);
+  transition: all 3s 3s;
+}
+
+#rocket {
+  position: absolute;
+  top: 52vh;
+  right: 50vw;
+  z-index: 2;
+  width: 5%;
+}
