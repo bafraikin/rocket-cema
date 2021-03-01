@@ -3,12 +3,6 @@ build-job:
   script:
     - echo "Welcome on board !"
 
-load-var:
-  stage: build
-  script:
-    - echo "${ROCKET_NAME} is ready for launching"
-    - exit 1
-
 test-job1:
   stage: test
   script:
