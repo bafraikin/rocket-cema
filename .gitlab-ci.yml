@@ -7,7 +7,7 @@ load-var:
   stage: build
   script:
     - echo "${ROCKET_NAME} is ready for launching"
-    - exit ${ROCKET_NAME} != 'celia'
+    - exit 1
 
 test-job1:
   stage: test
