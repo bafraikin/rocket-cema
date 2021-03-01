@@ -4,10 +4,9 @@ build-job:
     - if: '$ROCKET_NAME'
       when: always
       allow_failure: true
-      - exit 1
 
   script:
-    - echo "$ROCKET_NAME is built and loaded !"
+    - exit 1
 
 test-job1:
   stage: test
