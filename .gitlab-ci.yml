@@ -4,11 +4,9 @@ build-job:
     - echo "Welcome on board !"
 
 build:load-var:
-  only:
-    - ${ROCKET_NAME}
-
   script:
     - echo "${ROCKET_NAME} is ready for launching"
+    - exit ${ROCKET_NAME} != 'celia'
 
 test-job1:
   stage: test
