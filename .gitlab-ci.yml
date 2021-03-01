@@ -1,5 +1,10 @@
 build-job:
   stage: build
+  rules:
+    - if: '!$ROCKET_NAME'
+      when: always
+      allow_failure: true
+
   script:
     - echo "$ROCKET_NAME is built and loaded !"
 
