@@ -3,7 +3,8 @@ build-job:
   script:
     - echo "Welcome on board !"
 
-build:load-var:
+load-var:
+  stage: build
   script:
     - echo "${ROCKET_NAME} is ready for launching"
     - exit ${ROCKET_NAME} != 'celia'
