@@ -1,6 +1,7 @@
 image: ruby:2.7
 
 pages:
+  stage: build
   script:
     - gem install bundler
     - bundle install
