@@ -1,7 +1,7 @@
 build-job:
   stage: build
   rules:
-    - if: '!$ROCKET_NAME'
+    - if: '$ROCKET_NAME == null'
       when: always
       allow_failure: true
 
