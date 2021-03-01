@@ -1,12 +1,14 @@
 build-job:
   stage: build
-  rules:
-    - if: '$ROCKET_NAME'
-      when: always
-      allow_failure: true
+  script:
+    - echo "Welcome on board !"
+
+build:load-var:
+  only:
+    - ${ROCKET_NAME}
 
   script:
-    - exit 1
+    - echo "${ROCKET_NAME} is ready for launching"
 
 test-job1:
   stage: test
