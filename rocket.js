@@ -1,10 +1,14 @@
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 class Rocket {
   constructor() {
     this.rocket = document.querySelector("#rocket");
     var rocketBound = this.rocket.getBoundingClientRect();
-    this.y = rocketBound.y + rocketBound.height / 2;
-    this.x = rocketBound.x + rocketBound.width / 2;
+    this.y = rocketBound.top;
+    this.x = rocketBound.right;
   }
 
   giveAngle(angle) {
@@ -16,7 +20,11 @@ class Rocket {
     this.speed = speed;
   }
 
+  degreeToRadian(degree) {
+    return degree * (Math.PI / 180);
+  }
+
   launchIt() {
-      Math.tan(angle);
+    Math.tan(degreeToRadian(this.angle))
   }
 }
