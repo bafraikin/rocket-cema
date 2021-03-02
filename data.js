@@ -1,5 +1,5 @@
 const data = {
-    "angle": 130,
+    "angle": 15,
     "speed": 2
   }
 

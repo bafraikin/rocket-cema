@@ -23,15 +23,21 @@ body {
   left: 2vw;
   z-index: 2;
   width: 7%;
-  animation: 7s linear 1s infinite running asteroide;
 }
+
+:root{
+--rocket-top: 80vh;
+--rocket-right: 50vw;
+}
+
 
 #rocket {
   position: absolute;
-  top: 60vh;
-  right: 50vw;
+  top: var(--rocket-top);
+  right: var(--rocket-right);
   z-index: 2;
   width: 5%;
+  /* animation: 7s linear 1s infinite running rocket; */
 }
 
 iframe {
@@ -40,10 +46,3 @@ iframe {
   height: 100%; 
 }
 
-@keyframes asteroide { 0% { top: 10vh; left: 2vw;} 50% { top: 15vh; left: 50vw;} 100% {top: 50vh; left: 80vw;}}
-@keyframes rocket { 0% { top: 60vh; right: 50vw;} }
-
-
-#rocket {
-    transition: transform 330ms ease-in-out;
-  }

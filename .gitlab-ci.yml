@@ -6,20 +6,6 @@ pages:
     - gem install bundler
     - bundle install
     - bundle exec jekyll build -d public
-    # - run ARCH= && dpkgArch="$(dpkg --print-architecture)" \
-    #   && case "${dpkgArch##*-}" in \
-    #     amd64) ARCH='x64';; \
-    #     ppc64el) ARCH='ppc64le';; \
-    #     s390x) ARCH='s390x';; \
-    #     arm64) ARCH='arm64';; \
-    #     armhf) ARCH='armv7l';; \
-    #     i386) ARCH='x86';;
-    # - apt install curl
-    #   && curl -fsSLO --compressed "https://nodejs.org/dist/v12.21.0/node-v12.21.0-linux-$ARCH.tar.xz" \
-    #   && tar -xJf "node-v12.21.0-linux-$ARCH.tar.xz" -C /usr/local
-    #   && rm "node-v12.21.0-linux-$ARCH.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
-    #   && ln -s /usr/local/bin/node /usr/local/bin/nodejs \
-
   artifacts:
     paths:
       - public
