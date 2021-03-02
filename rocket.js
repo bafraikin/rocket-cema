@@ -42,14 +42,14 @@ class Rocket {
     var cssAnimation = document.createElement('style');
     cssAnimation.type = 'text/css';
     let rules;
-    if (this.angle == 82) {
+    if (this.angle == 60) {
       rules = document.createTextNode(
-        '@keyframes asteroide { 0% { top: 30vh; left: 2vw;} 50% { top: 45vh; left: 50vw;} 100% {top: 80vh; left: 80vw;}}'
+        '@keyframes asteroide { 0% { top: 30vh; left: 2vw;} 62% { top: 31vh; left: 69vw;} 100% {top: 0vh; left: 80vw;}}'
       );
     }
-    else if (this.angle == 130) {
+    else if (this.angle == 79) {
       rules = document.createTextNode(
-        '@keyframes asteroide { 0% { top: 30vh; left: 2vw;} 40% { top: 30vh; left: 30vw;} 100% {top: 0vh; left: 50vw;}}'
+        '@keyframes asteroide { 0% { top: 30vh; left: 2vw;} 50% { top: 35vh; left: 52vw;} 100% {top: 80vh; left: 80vw;}}'
       );
     }
     else {
