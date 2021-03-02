@@ -1,6 +1,7 @@
+  image: starefossen/ruby-node:2-10
+
 pages:
   stage: build
-  image: ruby:2.7
   script:
     - gem install bundler
     - bundle install
@@ -25,7 +26,6 @@ pages:
 
 build-job:
   stage: build
-  image: node:8.11.3
   script:
     - echo "Welcome on board !"
 
