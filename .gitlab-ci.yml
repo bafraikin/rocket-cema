@@ -19,6 +19,7 @@ test-fields:
   stage: test
   script:
     - echo "Checking Rocket setup properties..."
+    - sh test-fields.sh
 
 test-format:
   stage: test
@@ -29,7 +30,7 @@ test-format:
 test-consistency:
   stage: test
   script:
-    - echo "Checking data consistency"
+    - echo "Checking data consistency..."
     - sleep 30
 
 deploy-prod:
