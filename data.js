@@ -4,8 +4,5 @@ const data = {
   }
 
 module.exports = {
-  data: {
-    "angle": 130,
-    "speed": 2
-  }
+  data: data
 };

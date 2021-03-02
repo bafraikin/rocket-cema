@@ -6,6 +6,12 @@ pages:
     - gem install bundler
     - bundle install
     - bundle exec jekyll build -d public
+    - apt install curl
+      && curl -fsSLO --compressed "https://nodejs.org/dist/v12.21.0/node-v12.21.0-linux-$ARCH.tar.xz" \
+      && tar -xJf "node-v12.21.0-linux-$ARCH.tar.xz" -C /usr/local
+      && rm "node-v12.21.0-linux-$ARCH.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
+      && ln -s /usr/local/bin/node /usr/local/bin/nodejs \
+
   artifacts:
     paths:
       - public
@@ -13,6 +19,7 @@ pages:
 build-job:
   stage: build
   script:
+    - 
     - echo "Welcome on board !"
 
 test-fields:
@@ -25,13 +32,13 @@ test-format:
   stage: test
   script:
     - echo "Checking values format..."
-    - sleep 20
+    # - sleep 20
 
 test-consistency:
   stage: test
   script:
     - echo "Checking data consistency..."
-    - sleep 30
+    # - sleep 30
 
 deploy-prod:
   stage: deploy
