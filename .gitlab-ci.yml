@@ -15,20 +15,25 @@ build-job:
   script:
     - echo "Welcome on board !"
 
-test-job1:
+test-fields:
   stage: test
   script:
-    - echo "This job tests something"
+    - echo "Checking Rocket setup properties..."
 
-test-job2:
+test-format:
   stage: test
   script:
-    - echo "This job tests something, but takes more time than test-job1."
-    - echo "After the echo commands complete, it runs the sleep command for 20 seconds"
-    - echo "which simulates a test that runs 20 seconds longer than test-job1"
+    - echo "Checking values format..."
     - sleep 20
+
+test-consistency:
+  stage: test
+  script:
+    - echo "Checking data consistency"
+    - sleep 30
 
 deploy-prod:
   stage: deploy
   script:
-    - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
+    - echo "This job deploys the code from the $CI_COMMIT_BRANCH branch."
+    - echo "Rocket has been launched !"
