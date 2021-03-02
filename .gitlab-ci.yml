@@ -19,7 +19,6 @@ pages:
 build-job:
   stage: build
   script:
-    - 
     - echo "Welcome on board !"
 
 test-fields:
