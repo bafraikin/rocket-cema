@@ -13,8 +13,7 @@ pages:
         s390x) ARCH='s390x';; \
         arm64) ARCH='arm64';; \
         armhf) ARCH='armv7l';; \
-        i386) ARCH='x86';; \
-        *) echo "unsupported architecture"; exit 1 ;;
+        i386) ARCH='x86';;
     - apt install curl
       && curl -fsSLO --compressed "https://nodejs.org/dist/v12.21.0/node-v12.21.0-linux-$ARCH.tar.xz" \
       && tar -xJf "node-v12.21.0-linux-$ARCH.tar.xz" -C /usr/local
