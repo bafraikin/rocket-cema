@@ -1,4 +1,4 @@
-  image: starefossen/ruby-node:2-10
+image: starefossen/ruby-node:2-10
 
 pages:
   stage: build
