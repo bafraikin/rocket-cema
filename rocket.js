@@ -1,15 +1,7 @@
-// const data = require("./data.js")
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 class Rocket {
   constructor(speed, angle) {
     this.rocket = document.querySelector("#rocket");
-    var rocketBound = this.rocket.getBoundingClientRect();
-    this.y = rocketBound.top;
-    this.x = rocketBound.right;
     this.speed = speed;
     this.angle = angle;
     this.giveAngle();
@@ -38,26 +30,52 @@ class Rocket {
       this.launchIt(100, 80 - (0 / Math.tan(this.degreeToRadian(this.angle)) + 20));
   }
 
+  checkCollision() {
+    const asteroid = document.querySelector("#asteroid");
+    const coordAsteroid = asteroid.getClientRects()[0]
+    const coordRocket = this.rocket.getClientRects()[0]
+    return ((Math.abs(coordAsteroid.x - coordRocket.x) < 20) && (Math.abs(coordAsteroid.y - coordRocket.y) < 20))
+  }
+
+  updateAnimation() {
+    let bool = true;
+    setInterval(() => {
+    
+      if (bool) {
+        if(this.checkCollision()) {
+          bool = false;
+          const asteroid = document.querySelector('#asteroid')
+          const animation =  asteroid.animate([
+            { transform: 'translateY(0px)' },
+            { transform: 'translateY(800px)' }
+          ], {
+            duration: 7000,
+        });
+          asteroid.addEventListener('animationiteration', () => {
+            animation.cancel();
+            bool = true
+          });
+        }
+      }
+    }, 100);
+  }
+
   loadAsterdoid() {
     var cssAnimation = document.createElement('style');
     cssAnimation.type = 'text/css';
     let rules;
     if (this.angle == 60) {
       rules = document.createTextNode(
-        '@keyframes asteroide { 0% { top: 30vh; left: 2vw;} 62% { top: 31vh; left: 69vw;} 100% {top: 0vh; left: 80vw;}}'
-      );
-    }
-    else if (this.angle == 79) {
-      rules = document.createTextNode(
-        '@keyframes asteroide { 0% { top: 30vh; left: 2vw;} 50% { top: 35vh; left: 52vw;} 100% {top: 80vh; left: 80vw;}}'
+        '@keyframes asteroid { 0% { top: 30vh; left: 2vw;} 62% { top: 31vh; left: 69vw;} 100% {top: 0vh; left: 80vw;}}'
       );
     }
     else {
+      this.updateAnimation();
       rules = document.createTextNode(
-        '@keyframes asteroide { 0% { top: 30vh; left: 2vw;} 100% {top: 60vh; left: 100vw;}}'
+        '@keyframes asteroid { 0% { top: 30vh; left: 2vw;} 100% {top: 60vh; left: 100vw;}}'
       );
     }
-    var addAnimationRule = document.createTextNode('#asteroide {animation: 7s linear 1s infinite running asteroide;}')
+    var addAnimationRule = document.createTextNode('#asteroid {animation: 7s linear 1s infinite running asteroid;}')
     cssAnimation.appendChild(rules);
     cssAnimation.appendChild(addAnimationRule);
     document.getElementsByTagName("head")[0].appendChild(cssAnimation); 
