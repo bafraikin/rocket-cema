@@ -20,17 +20,17 @@ jobs:
                     echo "Welcome on board !"
           - run:
                name: test-fields
-               command:
+               command: |
                     echo "Checking Rocket setup properties..."
                     sh test-fields.sh
           - run:
                name: test-format
-               command:
+               command: |
                     echo "Checking values format..."
                     sh test-format.sh
           - run:  
                name: test-consistency
-               command:
+               command: |
                     echo "Checking data consistency..."
                     sh test-consisten.sh
           
