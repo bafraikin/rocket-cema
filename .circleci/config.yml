@@ -10,6 +10,24 @@ jobs:
       - run:
           name: The First Step
           command: |
-            echo 'Hello World!'
-            echo 'This is the delivery pipeline'
+            - echo "Welcome on board !"
 
+          name: test-fields
+          command:
+              - echo "Checking Rocket setup properties..."
+              - sh test-fields.sh
+          
+          name: test-format
+          command:
+              - echo "Checking values format..."
+          
+          name: test-consistency
+          command:
+              - echo "Checking data consistency..."
+          
+          name deploy-prod
+          command:
+              - echo "This job deploys the code from the $CI_COMMIT_BRANCH branch."
+              - echo "Rocket has been launched !"
+          
+          
