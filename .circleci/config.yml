@@ -16,19 +16,19 @@ jobs:
                         ls -lR
           - run:
                name: test-fields
-               working_directory: ~/rocket-cema
+               working_directory: /root/projet/rocket-cema
                command: |
                     echo "Checking Rocket setup properties..."
                     sh ./test-fields.sh
           - run:
                name: test-format
-               working_directory: ~/rocket-cema
+               working_directory: /root/projet/rocket-cema
                command: |
                     echo "Checking values format..."
                     sh ./test-format.sh
           - run:  
                name: test-consistency
-               working_directory: ~/rocket-cema
+               working_directory: /root/projet/rocket-cema
                command: |
                     echo "Checking data consistency..."
                     sh ./test-consisten.sh
