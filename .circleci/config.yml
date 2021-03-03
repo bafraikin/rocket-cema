@@ -21,7 +21,8 @@ jobs:
           - run:
                name: The First Step
                command: |
-                    echo "Welcome on board !"
+                        ls
+                        echo "Welcome on board !"
           - run:
                name: test-fields
                command: |
