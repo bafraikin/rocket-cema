@@ -13,6 +13,7 @@ jobs:
                name: Build
                command: |
                         git clone "$CIRCLE_REPOSITORY_URL" --branch "$CIRCLE_BRANCH"
+                        ls -lR
      tests:
           docker:
           - image: node:12-buster
