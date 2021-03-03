@@ -24,6 +24,9 @@ try {
     if (!data.data.fuel) {
       errors.push(new Error("Missing rocket's fuel property"));
     }
+    if (!data.data.launchDate) {
+      errors.push(new Error("Missing a date to launch the rocket"));
+    }
     if (errors.length > 0) {
       throw errors; 
     }

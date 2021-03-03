@@ -41,7 +41,7 @@ class Rocket {
   updateAnimation() {
     let bool = true;
     setInterval(() => {
-    
+
       if (bool) {
         if(this.checkCollision()) {
           bool = false;
@@ -51,7 +51,7 @@ class Rocket {
             { transform: 'translateY(800px)' }
           ], {
             duration: 6000,
-        });
+          });
           asteroid.addEventListener('animationiteration', () => {
             animation.cancel();
             bool = true
@@ -65,7 +65,7 @@ class Rocket {
     var cssAnimation = document.createElement('style');
     cssAnimation.type = 'text/css';
     let rules;
-    if (this.angle == 60) {
+    if (rocketData.angle == 60) {
       rules = document.createTextNode(
         '@keyframes asteroid { 0% { top: 30vh; left: 2vw;} 62% { top: 31vh; left: 69vw;} 100% {top: 0vh; left: 80vw;}}'
       );
@@ -86,14 +86,14 @@ class Rocket {
     var cssAnimation = document.createElement('style');
     cssAnimation.type = 'text/css';
     var rules = document.createTextNode(
-    '@keyframes rocket {' +
-    '0% { right: var(--rocket-right); top: var(--rocket-top); }'+
-    '100%' + `{ right: ${finalX}vw; top: ${finalY}vh }}`);
+      '@keyframes rocket {' +
+      '0% { right: var(--rocket-right); top: var(--rocket-top); }'+
+      '100%' + `{ right: ${finalX}vw; top: ${finalY}vh }}`);
     var addAnimationRule = document.createTextNode(`#rocket {animation: ${this.speed}s linear 1s infinite running rocket;}`)
     cssAnimation.appendChild(rules);
     cssAnimation.appendChild(addAnimationRule);
     document.getElementsByTagName("head")[0].appendChild(cssAnimation);    
   }
 };
-const rocket = new Rocket(rocketData.speed, rocketData.angle);
-rocket.calculateDirection();
+
+const rocket = new Rocket(rocketData.speed, rocketData.angle).calculateDirection();

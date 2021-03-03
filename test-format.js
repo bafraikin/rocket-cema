@@ -1,6 +1,11 @@
 #! /usr/bin/env node
 const data = require("./data.js")
 
+
+chechDateFormat(date) {
+  return !!date.match(/^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/)
+}
+
 try {
   let errors = [];
     if (typeof data.data.speed != "number") {
@@ -21,8 +26,8 @@ try {
     if (typeof data.data.fuel != "string") {
         errors.push(new Error("Invalid format for fuel property - must be a string"));
     }
-    if (typeof data.data.date != "string") { // TODO - add regex ?
-        errors.push(new Error("Invalid format for date property - must be DD/MM/YY hh:mm"));
+    if (typeof data.data.launchDate != "string" && checkDateFormat(data.data.launchDate)) {
+        errors.push(new Error("Invalid format for date property - must be DD/MM/YYYY or dd-mm-yyyy or dd.mm.yyyy"));
     }
     if (errors.length > 0) {
       throw errors; 
