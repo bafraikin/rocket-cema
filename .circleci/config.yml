@@ -7,27 +7,22 @@ jobs:
       - image: node:12-buster
   test:
     steps:
-      - run:
+     - run:
           name: The First Step
           command: |
               echo "Welcome on board !"
-
+     - run:
           name: test-fields
           command:
                echo "Checking Rocket setup properties..."
                sh test-fields.sh
-          
+     - run:
           name: test-format
           command:
                echo "Checking values format..."
-          
+     - run:  
           name: test-consistency
           command:
                echo "Checking data consistency..."
-          
-          name deploy-prod
-          command:
-               echo "This job deploys the code from the $CI_COMMIT_BRANCH branch."
-               echo "Rocket has been launched !"
           
           
