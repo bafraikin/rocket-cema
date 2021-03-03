@@ -10,24 +10,24 @@ jobs:
       - run:
           name: The First Step
           command: |
-            - echo "Welcome on board !"
+              echo "Welcome on board !"
 
           name: test-fields
           command:
-              - echo "Checking Rocket setup properties..."
-              - sh test-fields.sh
+               echo "Checking Rocket setup properties..."
+               sh test-fields.sh
           
           name: test-format
           command:
-              - echo "Checking values format..."
+               echo "Checking values format..."
           
           name: test-consistency
           command:
-              - echo "Checking data consistency..."
+               echo "Checking data consistency..."
           
           name deploy-prod
           command:
-              - echo "This job deploys the code from the $CI_COMMIT_BRANCH branch."
-              - echo "Rocket has been launched !"
+               echo "This job deploys the code from the $CI_COMMIT_BRANCH branch."
+               echo "Rocket has been launched !"
           
           
