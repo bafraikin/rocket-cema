@@ -82,7 +82,7 @@ class Rocket {
     document.getElementsByTagName("head")[0].appendChild(cssAnimation); 
   };
 
-  launchIt(finalX, finalY, speed) {
+  launchIt(finalX, finalY) {
     var cssAnimation = document.createElement('style');
     cssAnimation.type = 'text/css';
     var rules = document.createTextNode(
@@ -95,6 +95,5 @@ class Rocket {
     document.getElementsByTagName("head")[0].appendChild(cssAnimation);    
   }
 };
-
-const rocket = new Rocket(data.speed, data.angle);
+const rocket = new Rocket(rocketData.speed, rocketData.angle);
 rocket.calculateDirection();
