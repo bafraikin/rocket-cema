@@ -22,7 +22,7 @@ jobs:
                name: test-fields
                command: |
                     echo "Checking Rocket setup properties..."
-                    pwd
+                    ls && pwd
                     sh ./test-fields.sh
           - run:
                name: test-format
