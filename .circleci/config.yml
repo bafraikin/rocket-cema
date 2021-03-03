@@ -36,10 +36,10 @@ jobs:
           
 
 workflows:
- version: 2.1
- Workflow_to_run_test:
-   jobs:
-     - Build
-     - tests:
-         requires:
-           - Build
+     version: 2
+     Workflow_to_run_test:
+          jobs:
+          - build
+          - tests:
+               requires:
+               - build
