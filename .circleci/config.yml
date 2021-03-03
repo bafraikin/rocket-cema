@@ -9,6 +9,8 @@ jobs:
           - run:
                name: Build
                command: |
+                    pwd
+                    ls -al
                     echo "build is ok"
      tests:
           docker:
@@ -22,19 +24,17 @@ jobs:
                name: test-fields
                command: |
                     echo "Checking Rocket setup properties..."
-                    ls -alR
-                    pwd
                     sh ./test-fields.sh
           - run:
                name: test-format
                command: |
                     echo "Checking values format..."
-                    sh test-format.sh
+                    sh ./test-format.sh
           - run:  
                name: test-consistency
                command: |
                     echo "Checking data consistency..."
-                    sh test-consisten.sh
+                    sh ./test-consisten.sh
           
 
 workflows:
