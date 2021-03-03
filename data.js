@@ -1,6 +1,6 @@
 const data = {
-    "angle": 90,
-    "speed": 2
+    "angle": 85,
+    "speed": 3
   }
 
 module.exports = {

@@ -2,11 +2,12 @@
 class Rocket {
   constructor(speed, angle) {
     this.rocket = document.querySelector("#rocket");
-    this.speed = speed;
+    this.speed = 6 / speed;
     this.angle = angle;
     this.giveAngle();
     this.loadAsterdoid();
   }
+
 
   giveAngle() {
     if (this.angle <= 90 && this.angle >= 0)
@@ -34,7 +35,7 @@ class Rocket {
     const asteroid = document.querySelector("#asteroid");
     const coordAsteroid = asteroid.getClientRects()[0]
     const coordRocket = this.rocket.getClientRects()[0]
-    return ((Math.abs(coordAsteroid.x - coordRocket.x) < 20) && (Math.abs(coordAsteroid.y - coordRocket.y) < 20))
+    return ((Math.abs(coordAsteroid.x - coordRocket.x) < 30) && (Math.abs(coordAsteroid.y - coordRocket.y) < 30))
   }
 
   updateAnimation() {
@@ -49,7 +50,7 @@ class Rocket {
             { transform: 'translateY(0px)' },
             { transform: 'translateY(800px)' }
           ], {
-            duration: 7000,
+            duration: 6000,
         });
           asteroid.addEventListener('animationiteration', () => {
             animation.cancel();
@@ -57,7 +58,7 @@ class Rocket {
           });
         }
       }
-    }, 100);
+    }, 10);
   }
 
   loadAsterdoid() {
@@ -75,20 +76,20 @@ class Rocket {
         '@keyframes asteroid { 0% { top: 30vh; left: 2vw;} 100% {top: 60vh; left: 100vw;}}'
       );
     }
-    var addAnimationRule = document.createTextNode('#asteroid {animation: 7s linear 1s infinite running asteroid;}')
+    var addAnimationRule = document.createTextNode('#asteroid {animation: 6s linear 1s infinite running asteroid;}')
     cssAnimation.appendChild(rules);
     cssAnimation.appendChild(addAnimationRule);
     document.getElementsByTagName("head")[0].appendChild(cssAnimation); 
   };
 
-  launchIt(finalX, finalY) {
+  launchIt(finalX, finalY, speed) {
     var cssAnimation = document.createElement('style');
     cssAnimation.type = 'text/css';
     var rules = document.createTextNode(
     '@keyframes rocket {' +
     '0% { right: var(--rocket-right); top: var(--rocket-top); }'+
     '100%' + `{ right: ${finalX}vw; top: ${finalY}vh }}`);
-    var addAnimationRule = document.createTextNode('#rocket {animation: 7s linear 1s infinite running rocket;}')
+    var addAnimationRule = document.createTextNode(`#rocket {animation: ${this.speed}s linear 1s infinite running rocket;}`)
     cssAnimation.appendChild(rules);
     cssAnimation.appendChild(addAnimationRule);
     document.getElementsByTagName("head")[0].appendChild(cssAnimation);    
