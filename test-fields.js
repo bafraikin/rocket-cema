@@ -6,8 +6,20 @@ try {
     if (!data.data.speed) {
       errors.push(new Error("Missing speed property"));
     }
-    if (!data.data.beauty) {
-      errors.push(new Error("Missing beauty property"));
+    if (!data.data.date) {
+      errors.push(new Error("Missing date property"));
+    }
+    if (!data.data.temperature) {
+      errors.push(new Error("Missing temperature property"));
+    }
+    if (!data.data.angle) {
+      errors.push(new Error("Missing angle property"));
+    }
+    if (!data.data.weight) {
+      errors.push(new Error("Missing wheight property"));
+    }
+    if (!data.data.shape) {
+      errors.push(new Error("Missing shape property"));
     }
     if (!data.data.fuel) {
       errors.push(new Error("Missing fuel property"));
