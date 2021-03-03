@@ -12,9 +12,7 @@ jobs:
           - run:
                name: Build
                command: |
-                        pwd
                         git clone "$CIRCLE_REPOSITORY_URL" --branch "$CIRCLE_BRANCH"
-                        ls -lR
           - run:
                name: test-fields
                working_directory: /root/project/rocket-cema
