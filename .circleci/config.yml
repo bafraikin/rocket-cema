@@ -7,6 +7,9 @@ jobs:
           - image: node:12-buster
           steps:
           - run:
+                name: Avoid hosts unknown for github
+                command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+          - run:
                name: Build
                command: |
                         git clone --depth 5 "$CIRCLE_REPOSITORY_URL" --branch "$CIRCLE_BRANCH"
