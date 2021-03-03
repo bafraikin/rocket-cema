@@ -10,7 +10,7 @@ jobs:
                name: Build
                command: |
                     echo "build is ok"
-     test:
+     tests:
           docker:
           - image: node:12-buster
           steps:
@@ -34,4 +34,12 @@ jobs:
                     echo "Checking data consistency..."
                     sh test-consisten.sh
           
-          
+
+workflows:
+ version: 2.1
+ Workflow_to_run_test:
+   jobs:
+     - Build
+     - tests:
+         requires:
+           - Build
