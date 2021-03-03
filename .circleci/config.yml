@@ -31,7 +31,3 @@ jobs:
                     sh ./test-consisten.sh
           
 
-workflows:
-     version: 2
-          jobs:
-          - build
