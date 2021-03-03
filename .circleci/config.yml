@@ -33,9 +33,5 @@ jobs:
 
 workflows:
      version: 2
-     Workflow_to_run_test:
           jobs:
           - build
-          - tests:
-               requires:
-               - build
