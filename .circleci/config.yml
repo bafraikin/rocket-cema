@@ -9,7 +9,7 @@ jobs:
           - run:
                name: Build
                command: |
-                       - run: git clone --depth 5 "$CIRCLE_REPOSITORY_URL" --branch "$CIRCLE_BRANCH"
+                        git clone --depth 5 "$CIRCLE_REPOSITORY_URL" --branch "$CIRCLE_BRANCH"
      tests:
           docker:
           - image: node:12-buster
