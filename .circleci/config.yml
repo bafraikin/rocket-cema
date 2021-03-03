@@ -14,15 +14,6 @@ jobs:
                command: |
                         git clone "$CIRCLE_REPOSITORY_URL" --branch "$CIRCLE_BRANCH"
                         ls -lR
-     tests:
-          docker:
-          - image: node:12-buster
-          steps:
-          - run:
-               name: The First Step
-               command: |
-                  ls
-                  echo "Welcome on board !"
           - run:
                name: test-fields
                command: |
